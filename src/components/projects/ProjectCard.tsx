@@ -26,9 +26,29 @@ export default function ProjectCard({ project, index }: { project: Project; inde
             <div className="absolute inset-0 bg-gradient-to-r from-bg-primary/30 to-transparent z-10 pointer-events-none" />
 
             {/* Hero Visual */}
-            <div className="w-full h-full opacity-80 transition-all duration-700 group-hover:opacity-100 group-hover:scale-105">
-              <ProjectHeroVisual type={project.heroVisualType} accentColor={project.accentColor} />
-            </div>
+            {project.liveUrl ? (
+              <div className="w-full h-full opacity-90 transition-all duration-700 group-hover:opacity-100 overflow-hidden pointer-events-none">
+                <div className="relative w-full h-full" style={{ overflow: 'hidden' }}>
+                  <iframe
+                    src={project.liveUrl}
+                    title={project.title}
+                    className="absolute top-0 left-0 border-0"
+                    style={{
+                      width: '400%',
+                      height: '400%',
+                      transform: 'scale(0.25)',
+                      transformOrigin: 'top left',
+                    }}
+                    loading="lazy"
+                    tabIndex={-1}
+                  />
+                </div>
+              </div>
+            ) : (
+              <div className="w-full h-full opacity-80 transition-all duration-700 group-hover:opacity-100 group-hover:scale-105">
+                <ProjectHeroVisual type={project.heroVisualType} accentColor={project.accentColor} />
+              </div>
+            )}
 
             {/* Status badge */}
             <span
@@ -93,7 +113,7 @@ export default function ProjectCard({ project, index }: { project: Project; inde
             {/* CTA */}
             <div className="flex items-center justify-between">
               <span className="inline-flex items-center gap-2 text-sm font-medium text-txt-primary group-hover:text-white transition-colors">
-                Ver Case Completo
+                {project.liveUrl ? 'Ver Site ao Vivo' : 'Ver Case Completo'}
                 <svg
                   className="w-4 h-4 transition-transform duration-300 group-hover:translate-x-1"
                   viewBox="0 0 24 24"
