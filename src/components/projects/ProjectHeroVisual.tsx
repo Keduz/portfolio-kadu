@@ -2,7 +2,7 @@
 
 import { motion } from 'framer-motion'
 
-type VisualType = 'dashboard' | 'workflow' | 'chat' | 'documents' | 'monitor' | 'pipeline'
+type VisualType = 'dashboard' | 'workflow' | 'chat' | 'documents' | 'monitor' | 'pipeline' | 'website'
 
 const ease = [0.16, 1, 0.3, 1] as const
 
@@ -393,6 +393,84 @@ function PipelineVisual({ color }: { color: string }) {
   )
 }
 
+function WebsiteVisual({ color }: { color: string }) {
+  const gold = '#D4A843'
+  const olive = '#6B7F4A'
+  const sand = '#FBF9F5'
+  return (
+    <svg viewBox="0 0 400 280" fill="none" className="w-full h-full">
+      {/* Browser chrome */}
+      <rect x="15" y="10" width="370" height="260" rx="8" fill="#1a1a2e" stroke={color} strokeWidth="0.5" opacity="0.3" />
+      <rect x="15" y="10" width="370" height="24" rx="8" fill={color} fillOpacity="0.08" />
+      <rect x="15" y="26" width="370" height="8" fill={color} fillOpacity="0.08" />
+      {/* Window dots */}
+      <circle cx="30" cy="22" r="3" fill="#FF5F57" opacity="0.6" />
+      <circle cx="42" cy="22" r="3" fill="#FFBD2E" opacity="0.6" />
+      <circle cx="54" cy="22" r="3" fill="#28CA41" opacity="0.6" />
+      {/* URL bar */}
+      <rect x="80" y="16" width="200" height="12" rx="6" fill="white" fillOpacity="0.06" />
+      <rect x="90" y="20" width="120" height="4" rx="2" fill="white" fillOpacity="0.12" />
+
+      {/* Site content area */}
+      {/* Navbar */}
+      <rect x="20" y="38" width="360" height="18" fill={sand} fillOpacity="0.06" />
+      <rect x="30" y="43" width="50" height="8" rx="2" fill={gold} fillOpacity="0.5" />
+      <rect x="260" y="44" width="25" height="5" rx="1.5" fill="white" fillOpacity="0.15" />
+      <rect x="292" y="44" width="25" height="5" rx="1.5" fill="white" fillOpacity="0.15" />
+      <rect x="324" y="44" width="25" height="5" rx="1.5" fill="white" fillOpacity="0.15" />
+      <rect x="356" y="43" width="18" height="7" rx="3" fill={olive} fillOpacity="0.5" />
+
+      {/* Hero section */}
+      <rect x="20" y="58" width="360" height="80" fill={gold} fillOpacity="0.04" />
+      {/* Hero text */}
+      <rect x="35" y="70" width="140" height="8" rx="2" fill={gold} fillOpacity="0.4" />
+      <rect x="35" y="83" width="100" height="5" rx="1.5" fill="white" fillOpacity="0.15" />
+      <rect x="35" y="93" width="120" height="5" rx="1.5" fill="white" fillOpacity="0.1" />
+      {/* Hero CTA buttons */}
+      <rect x="35" y="108" width="45" height="12" rx="4" fill={olive} fillOpacity="0.5" />
+      <rect x="86" y="108" width="45" height="12" rx="4" fill={gold} fillOpacity="0.3" stroke={gold} strokeWidth="0.5" strokeOpacity="0.4" />
+      {/* Hero image placeholder */}
+      <rect x="250" y="65" width="120" height="68" rx="6" fill={gold} fillOpacity="0.08" stroke={gold} strokeWidth="0.3" strokeOpacity="0.2" />
+      <rect x="260" y="75" width="100" height="40" rx="4" fill={sand} fillOpacity="0.06" />
+      <circle cx="310" cy="95" r="12" fill={gold} fillOpacity="0.1" />
+
+      {/* Property cards section */}
+      <rect x="35" y="148" width="60" height="5" rx="1.5" fill={gold} fillOpacity="0.3" />
+      <rect x="35" y="156" width="90" height="4" rx="1" fill="white" fillOpacity="0.1" />
+
+      {/* Property card 1 */}
+      <rect x="30" y="166" width="105" height="90" rx="6" fill="white" fillOpacity="0.04" stroke={color} strokeWidth="0.3" opacity="0.15" />
+      <rect x="30" y="166" width="105" height="45" rx="6" fill={gold} fillOpacity="0.06" />
+      <rect x="30" y="205" width="105" height="6" rx="0" fill="white" fillOpacity="0.04" />
+      <rect x="36" y="218" width="60" height="4" rx="1" fill="white" fillOpacity="0.15" />
+      <rect x="36" y="226" width="40" height="3" rx="1" fill="white" fillOpacity="0.08" />
+      <rect x="36" y="234" width="50" height="6" rx="2" fill={gold} fillOpacity="0.35" />
+      <rect x="100" y="234" width="28" height="6" rx="2" fill={olive} fillOpacity="0.3" />
+
+      {/* Property card 2 */}
+      <rect x="148" y="166" width="105" height="90" rx="6" fill="white" fillOpacity="0.04" stroke={color} strokeWidth="0.3" opacity="0.15" />
+      <rect x="148" y="166" width="105" height="45" rx="6" fill={olive} fillOpacity="0.06" />
+      <rect x="148" y="205" width="105" height="6" rx="0" fill="white" fillOpacity="0.04" />
+      <rect x="154" y="218" width="60" height="4" rx="1" fill="white" fillOpacity="0.15" />
+      <rect x="154" y="226" width="45" height="3" rx="1" fill="white" fillOpacity="0.08" />
+      <rect x="154" y="234" width="50" height="6" rx="2" fill={gold} fillOpacity="0.35" />
+      <rect x="218" y="234" width="28" height="6" rx="2" fill={olive} fillOpacity="0.3" />
+
+      {/* Property card 3 */}
+      <rect x="266" y="166" width="105" height="90" rx="6" fill="white" fillOpacity="0.04" stroke={color} strokeWidth="0.3" opacity="0.15" />
+      <rect x="266" y="166" width="105" height="45" rx="6" fill={gold} fillOpacity="0.08" />
+      <rect x="266" y="205" width="105" height="6" rx="0" fill="white" fillOpacity="0.04" />
+      <rect x="272" y="218" width="60" height="4" rx="1" fill="white" fillOpacity="0.15" />
+      <rect x="272" y="226" width="40" height="3" rx="1" fill="white" fillOpacity="0.08" />
+      <rect x="272" y="234" width="50" height="6" rx="2" fill={gold} fillOpacity="0.35" />
+      <rect x="336" y="234" width="28" height="6" rx="2" fill={olive} fillOpacity="0.3" />
+
+      {/* WhatsApp float button */}
+      <circle cx="365" cy="255" r="8" fill="#25D366" opacity="0.6" />
+    </svg>
+  )
+}
+
 const visuals: Record<VisualType, React.ComponentType<{ color: string }>> = {
   dashboard: DashboardVisual,
   workflow: WorkflowVisual,
@@ -400,6 +478,7 @@ const visuals: Record<VisualType, React.ComponentType<{ color: string }>> = {
   documents: DocumentsVisual,
   monitor: MonitorVisual,
   pipeline: PipelineVisual,
+  website: WebsiteVisual,
 }
 
 export default function ProjectHeroVisual({

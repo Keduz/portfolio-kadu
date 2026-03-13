@@ -23,6 +23,7 @@ interface ProjectHeroProps {
     | 'documents'
     | 'monitor'
     | 'pipeline'
+    | 'website'
 }
 
 /* ------------------------------------------------------------------ */
@@ -738,6 +739,102 @@ function PipelineVisual({ accent, secondary }: { accent: string; secondary: stri
 }
 
 /* ------------------------------------------------------------------ */
+/*  Visual: Website (Real Estate)                                      */
+/* ------------------------------------------------------------------ */
+
+function WebsiteVisual({ accent }: { accent: string; secondary: string }) {
+  const gold = '#D4A843'
+  const olive = '#6B7F4A'
+  const sand = '#FBF9F5'
+  return (
+    <svg viewBox="0 0 400 300" fill="none" className="w-full h-full">
+      {/* Browser chrome */}
+      <motion.rect x="10" y="5" width="380" height="290" rx="10" fill="#1a1a2e" stroke={accent} strokeWidth="0.5" opacity="0.3"
+        initial={{ opacity: 0, scale: 0.9 }} animate={{ opacity: 0.3, scale: 1 }} transition={{ delay: 0.4, duration: 0.8, ease }}
+      />
+      <rect x="10" y="5" width="380" height="26" rx="10" fill={accent} fillOpacity="0.06" />
+      <rect x="10" y="25" width="380" height="6" fill={accent} fillOpacity="0.06" />
+      <circle cx="26" cy="18" r="3.5" fill="#FF5F57" opacity="0.6" />
+      <circle cx="38" cy="18" r="3.5" fill="#FFBD2E" opacity="0.6" />
+      <circle cx="50" cy="18" r="3.5" fill="#28CA41" opacity="0.6" />
+      <rect x="80" y="12" width="220" height="13" rx="6.5" fill="white" fillOpacity="0.05" />
+      <rect x="92" y="16" width="140" height="5" rx="2" fill="white" fillOpacity="0.1" />
+
+      {/* Navbar */}
+      <motion.g initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: 0.6, duration: 0.6, ease }}>
+        <rect x="16" y="35" width="368" height="22" fill={sand} fillOpacity="0.05" />
+        <rect x="28" y="40" width="55" height="10" rx="3" fill={gold} fillOpacity="0.5" />
+        <rect x="260" y="42" width="28" height="5" rx="1.5" fill="white" fillOpacity="0.12" />
+        <rect x="296" y="42" width="28" height="5" rx="1.5" fill="white" fillOpacity="0.12" />
+        <rect x="332" y="42" width="28" height="5" rx="1.5" fill="white" fillOpacity="0.12" />
+        <rect x="366" y="40" width="14" height="8" rx="3" fill={olive} fillOpacity="0.5" />
+      </motion.g>
+
+      {/* Hero section */}
+      <motion.g initial={{ opacity: 0, y: 10 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.8, duration: 0.7, ease }}>
+        <rect x="16" y="59" width="368" height="90" fill={gold} fillOpacity="0.03" />
+        {/* Gold decorative line */}
+        <rect x="32" y="68" width="30" height="2" rx="1" fill={gold} fillOpacity="0.5" />
+        {/* Hero headline */}
+        <rect x="32" y="76" width="160" height="10" rx="3" fill={gold} fillOpacity="0.4" />
+        <rect x="32" y="92" width="120" height="6" rx="2" fill="white" fillOpacity="0.12" />
+        <rect x="32" y="103" width="140" height="5" rx="1.5" fill="white" fillOpacity="0.08" />
+        {/* CTA buttons */}
+        <motion.rect x="32" y="118" width="52" height="14" rx="5" fill={olive} fillOpacity="0.5"
+          animate={pulseOpacity(2)} />
+        <rect x="90" y="118" width="52" height="14" rx="5" fill="transparent" stroke={gold} strokeWidth="0.8" strokeOpacity="0.4" />
+        {/* Hero image */}
+        <rect x="260" y="65" width="115" height="76" rx="8" fill={gold} fillOpacity="0.06" stroke={gold} strokeWidth="0.4" strokeOpacity="0.15" />
+        <rect x="268" y="73" width="99" height="50" rx="5" fill={sand} fillOpacity="0.05" />
+        <circle cx="317" cy="98" r="15" fill={gold} fillOpacity="0.08" />
+        <rect x="268" y="128" width="40" height="5" rx="1.5" fill="white" fillOpacity="0.1" />
+        <rect x="340" y="128" width="27" height="5" rx="1.5" fill={gold} fillOpacity="0.2" />
+      </motion.g>
+
+      {/* Section title */}
+      <motion.g initial={{ opacity: 0, y: 8 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 1.1, duration: 0.6, ease }}>
+        <rect x="32" y="158" width="16" height="2" rx="1" fill={gold} fillOpacity="0.5" />
+        <rect x="32" y="164" width="70" height="6" rx="2" fill={gold} fillOpacity="0.3" />
+        <rect x="32" y="174" width="100" height="4" rx="1" fill="white" fillOpacity="0.08" />
+      </motion.g>
+
+      {/* Property cards */}
+      {[
+        { x: 24, delay: 1.2 },
+        { x: 146, delay: 1.4 },
+        { x: 268, delay: 1.6 },
+      ].map((card, i) => (
+        <motion.g key={`card-${i}`}
+          initial={{ opacity: 0, y: 15 }}
+          animate={{ opacity: 1, y: [15, 0, -3, 0] }}
+          transition={{ delay: card.delay, duration: 2, ease }}
+        >
+          <rect x={card.x} y="186" width="112" height="96" rx="8" fill="white" fillOpacity="0.03" stroke={accent} strokeWidth="0.3" strokeOpacity="0.12" />
+          {/* Image area */}
+          <rect x={card.x} y="186" width="112" height="48" rx="8" fill={i % 2 === 0 ? gold : olive} fillOpacity="0.06" />
+          <rect x={card.x} y="228" width="112" height="6" rx="0" fill={i % 2 === 0 ? gold : olive} fillOpacity="0.06" />
+          {/* Badge */}
+          <rect x={card.x + 6} y="192" width="30" height="10" rx="3" fill={olive} fillOpacity="0.3" />
+          {/* Card text */}
+          <rect x={card.x + 8} y="242" width="65" height="5" rx="1.5" fill="white" fillOpacity="0.15" />
+          <rect x={card.x + 8} y="251" width="45" height="3.5" rx="1" fill="white" fillOpacity="0.08" />
+          {/* Price */}
+          <rect x={card.x + 8} y="260" width="55" height="7" rx="2" fill={gold} fillOpacity="0.35" />
+          {/* CTA */}
+          <rect x={card.x + 76} y="260" width="28" height="7" rx="3" fill={olive} fillOpacity="0.3" />
+        </motion.g>
+      ))}
+
+      {/* WhatsApp float */}
+      <motion.circle cx="374" cy="280" r="9" fill="#25D366" opacity="0.6"
+        animate={{ scale: [1, 1.15, 1], opacity: [0.6, 0.8, 0.6] }}
+        transition={{ duration: 2, repeat: Infinity, ease: 'easeInOut' }}
+      />
+    </svg>
+  )
+}
+
+/* ------------------------------------------------------------------ */
 /*  Visual selector                                                    */
 /* ------------------------------------------------------------------ */
 
@@ -757,6 +854,7 @@ function HeroVisual({
     documents: DocumentsVisual,
     monitor: MonitorVisual,
     pipeline: PipelineVisual,
+    website: WebsiteVisual,
   }
   const Component = map[type]
   return <Component accent={accent} secondary={secondary} />

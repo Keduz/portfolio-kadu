@@ -6,7 +6,7 @@ import { useRef } from 'react'
 const ease = [0.16, 1, 0.3, 1] as const
 
 interface InteractiveVisualProps {
-  heroVisualType: 'dashboard' | 'workflow' | 'chat' | 'documents' | 'monitor' | 'pipeline'
+  heroVisualType: 'dashboard' | 'workflow' | 'chat' | 'documents' | 'monitor' | 'pipeline' | 'website'
   accentColor: string
   accentColorRGB: string
 }
@@ -478,6 +478,87 @@ function PipelineVisual({ accent, purple }: { accent: string; purple: string }) 
 /*  Visual selector                                                    */
 /* ------------------------------------------------------------------ */
 
+function WebsiteVisual({ accent }: { accent: string; purple: string }) {
+  const gold = '#D4A843'
+  const olive = '#6B7F4A'
+  const sand = '#FBF9F5'
+  return (
+    <>
+      {/* Browser chrome */}
+      <rect x="20" y="10" width="760" height="380" rx="12" fill="#1a1a2e" stroke={accent} strokeWidth="0.5" strokeOpacity={0.3} />
+      <rect x="20" y="10" width="760" height="36" rx="12" fill={accent} fillOpacity={0.06} />
+      <rect x="20" y="36" width="760" height="10" fill={accent} fillOpacity={0.06} />
+      <circle cx="42" cy="28" r="5" fill="#FF5F57" fillOpacity={0.6} />
+      <circle cx="58" cy="28" r="5" fill="#FFBD2E" fillOpacity={0.6} />
+      <circle cx="74" cy="28" r="5" fill="#28CA41" fillOpacity={0.6} />
+      <rect x="120" y="18" width="400" height="20" rx="10" fill="#F5F5F7" fillOpacity={0.04} />
+      <rect x="140" y="24" width="240" height="8" rx="3" fill="#F5F5F7" fillOpacity={0.08} />
+
+      {/* Navbar */}
+      <rect x="28" y="50" width="744" height="36" fill={sand} fillOpacity={0.04} />
+      <rect x="48" y="58" width="100" height="16" rx="4" fill={gold} fillOpacity={0.4} />
+      {/* Nav links */}
+      <rect x="480" y="64" width="50" height="8" rx="2" fill="#F5F5F7" fillOpacity={0.1} />
+      <rect x="548" y="64" width="50" height="8" rx="2" fill="#F5F5F7" fillOpacity={0.1} />
+      <rect x="616" y="64" width="50" height="8" rx="2" fill="#F5F5F7" fillOpacity={0.1} />
+      <rect x="684" y="60" width="70" height="16" rx="6" fill={olive} fillOpacity={0.4} />
+
+      {/* Hero section */}
+      <rect x="28" y="90" width="744" height="140" fill={gold} fillOpacity={0.02} />
+
+      {/* Gold divider */}
+      <rect x="56" y="105" width="50" height="3" rx="1.5" fill={gold} fillOpacity={0.5} />
+      {/* Headline */}
+      <rect x="56" y="118" width="280" height="16" rx="4" fill={gold} fillOpacity={0.35} />
+      <rect x="56" y="142" width="220" height="10" rx="3" fill="#F5F5F7" fillOpacity={0.1} />
+      <rect x="56" y="158" width="260" height="8" rx="2" fill="#F5F5F7" fillOpacity={0.07} />
+      <rect x="56" y="172" width="180" height="8" rx="2" fill="#F5F5F7" fillOpacity={0.05} />
+
+      {/* CTA buttons */}
+      <rect x="56" y="192" width="100" height="24" rx="8" fill={olive} fillOpacity={0.4} />
+      <rect x="56" y="200" width="100" height="8" rx="0" fill={olive} fillOpacity={0.4} />
+      <rect x="172" y="192" width="100" height="24" rx="8" fill="transparent" stroke={gold} strokeWidth="1" strokeOpacity={0.35} />
+
+      {/* Hero image area */}
+      <rect x="500" y="100" width="255" height="120" rx="12" fill={gold} fillOpacity={0.05} stroke={gold} strokeWidth="0.5" strokeOpacity={0.15} />
+      <rect x="514" y="112" width="227" height="80" rx="8" fill={sand} fillOpacity={0.04} />
+      <circle cx="627" cy="152" r="25" fill={gold} fillOpacity={0.08} />
+      <rect x="514" y="200" width="80" height="8" rx="2" fill="#F5F5F7" fillOpacity={0.08} />
+      <rect x="690" y="200" width="50" height="8" rx="2" fill={gold} fillOpacity={0.15} />
+
+      {/* Section divider */}
+      <rect x="56" y="242" width="30" height="3" rx="1.5" fill={gold} fillOpacity={0.5} />
+      <rect x="56" y="252" width="120" height="10" rx="3" fill={gold} fillOpacity={0.25} />
+      <rect x="56" y="268" width="180" height="6" rx="2" fill="#F5F5F7" fillOpacity={0.06} />
+
+      {/* Property cards */}
+      {[
+        { x: 44, w: 220 },
+        { x: 284, w: 220 },
+        { x: 524, w: 220 },
+      ].map((card, i) => (
+        <g key={`card-${i}`}>
+          <rect x={card.x} y="284" width={card.w} height="96" rx="10" fill="#F5F5F7" fillOpacity={0.02} stroke={accent} strokeWidth="0.5" strokeOpacity={0.1} />
+          {/* Image */}
+          <rect x={card.x} y="284" width={card.w} height="46" rx="10" fill={i % 2 === 0 ? gold : olive} fillOpacity={0.05} />
+          <rect x={card.x} y="322" width={card.w} height="8" rx="0" fill={i % 2 === 0 ? gold : olive} fillOpacity={0.05} />
+          {/* Badge */}
+          <rect x={card.x + 10} y="292" width="50" height="14" rx="5" fill={olive} fillOpacity={0.25} />
+          {/* Title */}
+          <rect x={card.x + 14} y="340" width="120" height="8" rx="2" fill="#F5F5F7" fillOpacity={0.12} />
+          <rect x={card.x + 14} y="354" width="80" height="6" rx="1.5" fill="#F5F5F7" fillOpacity={0.06} />
+          {/* Price + CTA */}
+          <rect x={card.x + 14} y="366" width="90" height="8" rx="2" fill={gold} fillOpacity={0.3} />
+          <rect x={card.x + 160} y="366" width="46" height="8" rx="4" fill={olive} fillOpacity={0.25} />
+        </g>
+      ))}
+
+      {/* WhatsApp float */}
+      <circle cx="740" cy="370" r="14" fill="#25D366" fillOpacity={0.5} />
+    </>
+  )
+}
+
 function VisualContent({ type, accent, purple }: { type: InteractiveVisualProps['heroVisualType']; accent: string; purple: string }) {
   switch (type) {
     case 'dashboard':
@@ -492,6 +573,8 @@ function VisualContent({ type, accent, purple }: { type: InteractiveVisualProps[
       return <MonitorVisual accent={accent} purple={purple} />
     case 'pipeline':
       return <PipelineVisual accent={accent} purple={purple} />
+    case 'website':
+      return <WebsiteVisual accent={accent} purple={purple} />
   }
 }
 

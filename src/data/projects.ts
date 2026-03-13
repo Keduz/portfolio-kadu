@@ -34,7 +34,7 @@ export type Project = {
   techs: TechRole[]
   metrics: ProjectMetric[]
   flowSteps: FlowStep[]
-  heroVisualType: 'dashboard' | 'workflow' | 'chat' | 'documents' | 'monitor' | 'pipeline'
+  heroVisualType: 'dashboard' | 'workflow' | 'chat' | 'documents' | 'monitor' | 'pipeline' | 'website'
 }
 
 export const projects: Project[] = [
@@ -290,7 +290,7 @@ export const projects: Project[] = [
       { title: 'Integracoes', description: 'Configuracao da integracao com WhatsApp para captura de leads e contato direto' },
       { title: 'Deploy e Otimizacao', description: 'Publicacao com otimizacao de SEO, performance e responsividade em todos os dispositivos' },
     ],
-    heroVisualType: 'dashboard',
+    heroVisualType: 'website',
   },
 ]
 
