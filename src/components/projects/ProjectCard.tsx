@@ -66,7 +66,7 @@ function CloseButton({ onClick, accentColor }: { onClick: (e: React.MouseEvent) 
       exit={{ opacity: 0, scale: 0.8 }}
       transition={{ duration: 0.2 }}
       onClick={onClick}
-      className="absolute top-3 right-14 z-[25] flex items-center gap-1.5 px-3 py-1.5 rounded-full backdrop-blur-md font-mono text-[0.65rem] font-medium transition-all duration-200 hover:scale-105"
+      className="absolute bottom-3 right-4 z-[25] flex items-center gap-1.5 px-3 py-1.5 rounded-full backdrop-blur-md font-mono text-[0.65rem] font-medium transition-all duration-200 hover:scale-105"
       style={{
         background: 'rgba(5, 5, 16, 0.8)',
         border: `1px solid ${accentColor}40`,
