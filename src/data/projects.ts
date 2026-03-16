@@ -77,7 +77,7 @@ export const projects: Project[] = [
       { title: 'Deploy e Otimizacao', description: 'Publicacao com otimizacao de SEO, performance e responsividade em todos os dispositivos' },
     ],
     heroVisualType: 'website',
-    liveUrl: 'https://corretora-site.vercel.app/',
+    liveUrl: 'https://keduz.github.io/corretora-site/',
   },
   {
     slug: 'automacao-relatorios',
